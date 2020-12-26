@@ -147,20 +147,18 @@ if __name__ == "__main__":
         test_y.append(utils.get_one_hot_encoded_array(emotion,label_map))
     test_y = np.array(test_y)
 
-    print(len(test_x))
-    print(len(test_y))
 
     # ---------------------------------------------------------------------------------------------
     model.model()
     # Train the model
-    # history = model.train(train_x,train_y,(val_x,val_y),num_epochs=10)
+    history = model.train(train_x,train_y,(val_x,val_y),num_epochs=10)
 
     # Plot Training results
-    # model.plot_graphs(history,"accuracy")
-    # model.plot_graphs(history,"loss")
+    model.plot_graphs(history,"accuracy")
+    model.plot_graphs(history,"loss")
 
     # Test Results
-    # results = model.test(test_x,test_y)
+    results = model.test(test_x,test_y)
     print("test loss, test acc:", results)
 
     # model.model.save('./model/my_model.h5')  # creates a HDF5 file 'my_model.h5'
