@@ -1,0 +1,8 @@
+{
+    "vocab_size": 10000,
+    "embedding_dim" : 64,
+    "max_length" : 120,
+    "turnc_type" : "post",
+    "oov_token" :"<00V>",
+    "pad_type":"post"
+}
