@@ -17,7 +17,7 @@ class EmotionModel():
         self.oov_token = oov_token
         self.pad_type = pad_type
 
-    def model(self):
+    def model_setup(self):
         self.model = tf.keras.Sequential([
             tf.keras.layers.Embedding(self.vocab_size, self.embedding_dim,input_length=self.max_length),
             tf.keras.layers.Bidirectional(tf.keras.layers.LSTM(64,return_sequences=True)),
@@ -149,9 +149,9 @@ if __name__ == "__main__":
 
 
     # ---------------------------------------------------------------------------------------------
-    model.model()
+    model.model_setup()
     # Train the model
-    history = model.train(train_x,train_y,(val_x,val_y),num_epochs=10)
+    history = model.train(train_x,train_y,(val_x,val_y),num_epochs=1)
 
     # Plot Training results
     model.plot_graphs(history,"accuracy")
